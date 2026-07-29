@@ -4,12 +4,12 @@
    ========================================================================== */
 
 const GitHubData = (() => {
-  const DATA_PATH = '../output/data/';
+  const DATA_PATH = 'data/';
   const cache = {};
 
   async function fetchJSON(file) {
     if (cache[file]) return cache[file];
-    const res = await fetch(DATA_PATH + file, { cache: 'no-store' });
+    const res = await fetch(DATA_PATH + file+'?v=' + Date.now(),{ cache: 'no-store' });
     if (!res.ok) {
       throw new Error(`Failed to load ${file} (HTTP ${res.status})`);
     }

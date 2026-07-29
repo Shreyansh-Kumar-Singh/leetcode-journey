@@ -1,0 +1,26 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+#define Max 50000
+void reorderList(struct ListNode* head) {
+    struct ListNode *arr[Max] ;
+    int n = 0;
+    struct ListNode *ptr = head;
+    while(ptr!=NULL){
+        arr[n++] = ptr;
+        ptr = ptr->next;
+    }
+    int i = 0 , j = n -1;
+    while(i < j){
+         arr[i]->next = arr[j];
+         i++;
+         if(i == j) break;
+         arr[j]->next = arr[i];
+         j--;
+    }
+    arr[i]->next = NULL;
+}

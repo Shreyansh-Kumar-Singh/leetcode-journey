@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        reverse(a.begin(), a.end());
+        reverse(b.begin(), b.end());
+        int i = 0;
+        int carry = 0;
+        string ans = "";
+        while (i < a.size() || i < b.size() || carry) {
+            int sum = carry;
+           if(i < a.size()) sum += a[i] - '0';
+           if(i < b.size()) sum += b[i] - '0';
+           ans += sum % 2 + '0';
+           carry = sum / 2;
+
+            i++;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};

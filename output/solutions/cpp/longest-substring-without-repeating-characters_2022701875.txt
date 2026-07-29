@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int l = 0, r = 0;
+        string ans = "";
+        int x = 0;
+        for (int l = 0; l < s.size(); l++) {
+            string cur = "";
+
+            for (int r = l; r < s.size(); r++) {
+                if (cur.find(s[r]) != string::npos)
+                    break;
+
+                cur += s[r];
+                x = max(x, (int)cur.size());
+            }
+        }
+
+        return x;
+    }
+};

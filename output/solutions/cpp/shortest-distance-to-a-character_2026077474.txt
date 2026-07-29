@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> shortestToChar(string s, char c) {
+        vector<int> ans1 , ans2;
+        int pos = INT_MAX;
+        for(int i = 0 ; i < s.size() ; i++){
+            if(s[i] == c){
+                pos = i;
+            }
+            if(pos != INT_MAX)
+                ans1.push_back(i - pos);
+            else
+                ans1.push_back(pos);
+        }
+        pos = INT_MAX;
+        for(int i = s.size()-1 ; i > -1 ; i--){
+            if(s[i] == c){
+                pos = i;
+            }
+            if(pos != INT_MAX)
+                ans2.push_back(pos-i);
+            else
+                ans2.push_back(pos);
+        }
+        reverse(ans2.begin() , ans2.end());
+        for(int i = 0 ; i < s.size() ; i++){
+            ans1[i] = min(ans1[i] , ans2[i]);
+        }
+        return ans1;
+    }
+};

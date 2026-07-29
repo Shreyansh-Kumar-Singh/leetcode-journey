@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        while (n > 9) {
+            long long sum = 0;
+            string a = to_string(n);
+            for (auto i : a) {
+                int b = i - '0';
+                sum += b * b;
+            }
+            n = int(sum);
+        }
+        if (n == 1)
+            return true;
+        return false;
+    }
+}
+;

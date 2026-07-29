@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0)
+            return false;
+        int n1 = x, rx = 0, digit = 0;
+        while (n1 > 0) {
+            digit = n1 % 10;
+            if (rx > INT_MAX / 10 || (rx == INT_MAX / 10 && digit > 7) ||
+                rx < INT_MIN / 10 || (rx == INT_MIN / 10 && digit < -8))
+                return false;
+            rx = rx * 10 + digit;
+            n1 /= 10;
+        }
+        if (rx == x)
+            return true;
+        else
+            return false;
+    }
+};

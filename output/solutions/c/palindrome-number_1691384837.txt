@@ -1,0 +1,12 @@
+bool isPalindrome(int x) {
+    if(x<0) return false;
+    int rx = 0 , digit , n =x;
+    while(n!=0)
+    {
+        digit = n%10;
+        rx = rx*10+digit;
+        n/=10;
+    }
+    if(rx == x) return true;
+    else return false;
+}

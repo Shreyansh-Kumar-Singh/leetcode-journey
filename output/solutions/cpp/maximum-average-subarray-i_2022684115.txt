@@ -1,0 +1,15 @@
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int l = 0 , r = l+k;
+        double avg = (double)accumulate(nums.begin() + l , nums.begin() + k, 0) / k;
+        double ans = avg ;
+        while(r < nums.size()){
+            avg = ((avg * k) + nums[r] - nums[l])/k;
+            ans = max(avg , ans);
+            l++;
+            r++;
+        }
+        return ans;
+    }
+};

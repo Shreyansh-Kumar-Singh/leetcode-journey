@@ -1,0 +1,35 @@
+typedef struct {
+    int val, idx;
+} Pair;
+
+int cmp1(const void* p1, const void* p2) {
+    return (*(Pair*) p2).val - (*(Pair*) p1).val;
+}
+
+int cmp2(const void* p1, const void* p2) {
+    return (*(Pair*) p1).idx - (*(Pair*) p2).idx;
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* maxSubsequence(int* nums, int numsSize, int k, int* returnSize) {
+    Pair* pairs = malloc(numsSize * sizeof(Pair));
+    for (int i = 0; i < numsSize; i++) {
+        pairs[i].val = nums[i];
+        pairs[i].idx = i;
+    }
+
+    qsort(pairs, numsSize, sizeof(Pair), cmp1);
+    qsort(pairs, k, sizeof(Pair), cmp2);
+    
+    int* ans = malloc(k * sizeof(int));
+    *returnSize = k;
+    for (int i = 0; i < k; i++) {
+        ans[i] = pairs[i].val;
+    }
+
+    free(pairs);
+
+    return ans;
+}

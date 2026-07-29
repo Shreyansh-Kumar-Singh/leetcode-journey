@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isNumber(string s) {
+        bool num = false, exp = false, sign = false, dec = false;
+        for (auto i : s) {
+            if (i >= '0' && i <= '9')
+                num = true;
+            else if (i == 'e' || i == 'E') {
+                if(exp || !num) return false;
+                else exp = true , num = false , sign = false , dec = false;
+            }
+            else if(i == '+' || i == '-'){
+                if(sign || num || dec) return false;
+                else sign = true;
+            }
+            else if(i == '.'){
+                if(dec || exp ) return false;
+                else dec = true;
+            }
+            else return false;
+        }
+        return num;
+    }
+};

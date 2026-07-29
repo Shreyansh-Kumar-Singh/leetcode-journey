@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool validPalindrome(string s) {
+        for (int i = -1; i < (int)s.size(); i++) {
+            int l = 0, r = s.size() - 1;
+            while (l < r) {
+                if (l == i) {
+                    l++;
+                    continue;
+                }
+                if (r == i) {
+                    r--;
+                    continue;
+                }
+                if (s[l] != s[r])
+                    break;
+                l++;
+                r--;
+            }
+            if(l>=r)
+                return true;
+        }
+        return false;
+    }
+};

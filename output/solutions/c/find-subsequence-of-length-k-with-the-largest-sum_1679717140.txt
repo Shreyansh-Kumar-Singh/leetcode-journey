@@ -1,0 +1,49 @@
+#include <stdlib.h>
+
+typedef struct node {
+    int val;
+    int idx;
+    struct node* next;
+} Node;
+
+int cmpValDesc(const void* a, const void* b) {
+    return ((Node*)b)->val - ((Node*)a)->val;
+}
+
+int cmpIdxAsc(const void* a, const void* b) {
+    return ((Node*)a)->idx - ((Node*)b)->idx;
+}
+
+int* maxSubsequence(int* nums, int numsSize, int k, int* returnSize) {
+    *returnSize = k;
+
+    // Step 1: Store values and their indices
+    Node* arr = (Node*)malloc(sizeof(Node) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        arr[i].val = nums[i];
+        arr[i].idx = i;
+    }
+
+    // Step 2: Sort by value descending
+    qsort(arr, numsSize, sizeof(Node), cmpValDesc);
+
+    // Step 3: Take top k elements
+    Node* topK = (Node*)malloc(sizeof(Node) * k);
+    for (int i = 0; i < k; i++) {
+        topK[i] = arr[i];
+    }
+
+    // Step 4: Sort the top k by index to maintain order
+    qsort(topK, k, sizeof(Node), cmpIdxAsc);
+
+    // Step 5: Build result array
+    int* result = (int*)malloc(sizeof(int) * k);
+    for (int i = 0; i < k; i++) {
+        result[i] = topK[i].val;
+    }
+
+    // Clean up
+    free(arr);
+    free(topK);
+    return result;
+}

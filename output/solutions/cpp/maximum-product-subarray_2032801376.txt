@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int ans = INT_MIN;
+        for (int i = 0; i < nums.size(); i++) {
+            ans = max(nums[i] , ans);
+            long long a = nums[i];
+            for (int j = i+1; j < nums.size(); j++) {
+                a *= nums[j];
+                ans = max((int)a , ans);
+            }
+        }
+        return ans;
+    }
+};

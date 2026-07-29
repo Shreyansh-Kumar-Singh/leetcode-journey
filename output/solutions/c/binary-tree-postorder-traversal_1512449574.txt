@@ -1,0 +1,27 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+void traverse(struct TreeNode* root, int* arr, int* returnSize) {
+    if (root->left)
+        traverse(root->left, arr, returnSize);
+    if (root->right)
+        traverse(root->right, arr, returnSize);
+    arr[(*returnSize)++] = root->val;
+}
+
+int* postorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* arr = malloc(100 * sizeof(int));
+    *returnSize = 0;
+    if (root)
+        traverse(root, arr, returnSize);
+   arr = realloc(arr, (*returnSize) * sizeof(int));
+    return arr;
+}

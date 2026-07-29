@@ -1,0 +1,18 @@
+#include <cmath>
+class Solution {
+public:
+    int reverseBits(int n) {
+        string a = "";
+        for (int i = 0; i < 32; i++) {
+            a += (n % 2) + '0';
+            n = n / 2;
+        }
+        reverse(a.begin() , a.end());
+        int ans = 0;
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] - '0' == 1)
+                ans += (a[i] - '0') * pow(2, i);
+        }
+        return ans;
+    }
+};

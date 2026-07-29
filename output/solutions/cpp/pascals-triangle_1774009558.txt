@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> ans;
+        for (int i = 1; i <= numRows; i++) {
+            vector<int> arr;
+            int n = 1;
+            for (int j = 0; j < i; j++) {
+                if (j == 0 || j == i)
+                    arr.push_back(1);
+                else {
+                    n *= (i - j);
+                    n /= j;
+                    arr.push_back(n);
+                }
+            }
+            ans.push_back(arr);
+        }
+        return ans;
+    }
+};

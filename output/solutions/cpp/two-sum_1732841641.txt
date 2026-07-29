@@ -1,0 +1,19 @@
+#include<map>
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map <int,int> mapp;
+        int moreNeeded;
+        for(int i = 0; i< nums.size() ; i++)
+        {
+            moreNeeded = target - nums[i];
+            if(mapp.find(moreNeeded) != mapp.end())
+            {
+                return {i , mapp[moreNeeded]};
+            }
+            mapp[nums[i]] = i;
+        }
+        return {-1,-1};
+    }
+};

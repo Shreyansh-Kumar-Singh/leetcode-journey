@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        int l = 0, r = s.size() - 1;
+        string a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        while (l < r) {
+            while (l < r && a.find(s[l]) == string::npos)
+                l++;
+            while (l < r && a.find(s[r]) == string::npos)
+                r--;
+            swap(s[l], s[r]);
+            l++;
+            r--;
+        }
+        return s;
+    }
+};

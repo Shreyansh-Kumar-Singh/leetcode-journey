@@ -1,0 +1,57 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* add(struct ListNode* head, int data) {
+    struct ListNode* newnode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newnode->val = data;
+    newnode->next = NULL;
+    if (head == NULL) {
+        head = newnode;
+        return head;
+    }
+    struct ListNode *ptr = head;
+    while (ptr->next != NULL) {
+        ptr = ptr->next;
+    }
+    ptr->next = newnode;
+    return head;
+}
+
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    struct ListNode* l3 = NULL;
+    struct ListNode *ptr1 = l1, *ptr2 = l2, *ptr3 = l3;
+    int digit = 0;
+    while (ptr1 != NULL && ptr2 != NULL) {
+        digit = ptr1->val + ptr2->val + digit;
+        ptr3 = add(ptr3, digit % 10);
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+        digit = digit / 10;
+    }
+    if (ptr1 != NULL) {
+        digit = ptr1->val + digit;
+        ptr3 = add(ptr3, digit % 10);
+        ptr1 = ptr1->next;
+        digit = digit / 10;
+    }
+    if (ptr2 != NULL) {
+        digit = ptr2->val + digit;
+        ptr3 = add(ptr3, digit % 10);
+        ptr2 = ptr2->next;
+        digit = digit / 10;
+    }
+    if (digit > 10) {
+        ptr3 = add(ptr3, digit);
+    }
+    return l3;
+}
+
+int main() {
+    struct ListNode *h1 = NULL, h2 = NULL, h3 = NULL;
+    for
+}

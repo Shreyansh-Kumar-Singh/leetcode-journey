@@ -1,0 +1,12 @@
+int climbStairs(int n) {
+    if (n <= 2) return n;
+    int left = 1;
+    int right = 2;
+    int curr = 0;
+    for(int i = 2 ; i < n ; i++ ){
+        curr = left + right;
+        left = right;
+        right = curr;
+    }
+    return curr;
+}

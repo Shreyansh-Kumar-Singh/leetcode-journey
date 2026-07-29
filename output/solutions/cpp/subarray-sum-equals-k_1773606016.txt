@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        map <int,int> mapp;
+        mapp[0] = 1;
+        int presum = 0 , count = 0;
+        for(auto i : nums)
+        {
+            presum += i;
+            int remove = presum - k;
+            count += mapp[remove];
+            mapp[presum]++;
+        }
+        return count;
+    }
+};

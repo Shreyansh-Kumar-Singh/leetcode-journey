@@ -3,11 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project Versions</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .container{
+            background:#fff;
+            padding:50px;
+            border-radius:18px;
+            box-shadow:0 20px 40px rgba(0,0,0,.25);
+            text-align:center;
+            width:380px;
+        }
+
+        h1{
+            color:#333;
+            margin-bottom:12px;
+            font-size:2rem;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:35px;
+        }
+
+        .links{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .btn{
+            text-decoration:none;
+            color:white;
+            background:#4f46e5;
+            padding:15px;
+            border-radius:10px;
+            font-size:18px;
+            font-weight:600;
+            transition:.3s ease;
+            box-shadow:0 8px 20px rgba(79,70,229,.35);
+        }
+
+        .btn:hover{
+            transform:translateY(-4px);
+            background:#3730a3;
+            box-shadow:0 12px 25px rgba(55,48,163,.45);
+        }
+
+        .btn:nth-child(2){
+            background:#10b981;
+            box-shadow:0 8px 20px rgba(16,185,129,.35);
+        }
+
+        .btn:nth-child(2):hover{
+            background:#059669;
+            box-shadow:0 12px 25px rgba(5,150,105,.45);
+        }
+
+        footer{
+            margin-top:30px;
+            color:#888;
+            font-size:14px;
+        }
+
+        @media(max-width:450px){
+            .container{
+                width:90%;
+                padding:35px 25px;
+            }
+
+            h1{
+                font-size:1.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a href="v1/index.html"> version 1 </a>
-    <br>
-    <a href="v2/index.html"> version 2</a>
+
+    <div class="container">
+        <h1>🚀 Project Versions</h1>
+        <p>Select the version you want to explore.</p>
+
+        <div class="links">
+            <a href="v1/index.html" class="btn">📁 Version 1</a>
+            <a href="v2/index.html" class="btn">✨ Version 2</a>
+        </div>
+
+        <footer>
+            Choose a version to continue.
+        </footer>
+    </div>
+
 </body>
 </html>

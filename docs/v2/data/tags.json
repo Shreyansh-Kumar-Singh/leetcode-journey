@@ -1,0 +1,154 @@
+[
+    {
+        "tag": "Array",
+        "count": 55
+    },
+    {
+        "tag": "Two Pointers",
+        "count": 52
+    },
+    {
+        "tag": "String",
+        "count": 28
+    },
+    {
+        "tag": "Linked List",
+        "count": 25
+    },
+    {
+        "tag": "Hash Table",
+        "count": 22
+    },
+    {
+        "tag": "Sorting",
+        "count": 20
+    },
+    {
+        "tag": "Math",
+        "count": 18
+    },
+    {
+        "tag": "Bit Manipulation",
+        "count": 15
+    },
+    {
+        "tag": "Binary Search",
+        "count": 14
+    },
+    {
+        "tag": "Recursion",
+        "count": 12
+    },
+    {
+        "tag": "Dynamic Programming",
+        "count": 11
+    },
+    {
+        "tag": "Stack",
+        "count": 10
+    },
+    {
+        "tag": "Divide and Conquer",
+        "count": 9
+    },
+    {
+        "tag": "Simulation",
+        "count": 7
+    },
+    {
+        "tag": "Matrix",
+        "count": 5
+    },
+    {
+        "tag": "Greedy",
+        "count": 5
+    },
+    {
+        "tag": "Tree",
+        "count": 4
+    },
+    {
+        "tag": "Binary Tree",
+        "count": 4
+    },
+    {
+        "tag": "Sliding Window",
+        "count": 3
+    },
+    {
+        "tag": "Merge Sort",
+        "count": 3
+    },
+    {
+        "tag": "Depth-First Search",
+        "count": 3
+    },
+    {
+        "tag": "Memoization",
+        "count": 2
+    },
+    {
+        "tag": "Heap (Priority Queue)",
+        "count": 2
+    },
+    {
+        "tag": "Counting",
+        "count": 2
+    },
+    {
+        "tag": "Union-Find",
+        "count": 1
+    },
+    {
+        "tag": "String Matching",
+        "count": 1
+    },
+    {
+        "tag": "Segment Tree",
+        "count": 1
+    },
+    {
+        "tag": "Prefix Sum",
+        "count": 1
+    },
+    {
+        "tag": "Ordered Set",
+        "count": 1
+    },
+    {
+        "tag": "Number Theory",
+        "count": 1
+    },
+    {
+        "tag": "Monotonic Stack",
+        "count": 1
+    },
+    {
+        "tag": "Enumeration",
+        "count": 1
+    },
+    {
+        "tag": "Design",
+        "count": 1
+    },
+    {
+        "tag": "Combinatorics",
+        "count": 1
+    },
+    {
+        "tag": "Breadth-First Search",
+        "count": 1
+    },
+    {
+        "tag": "Binary Search Tree",
+        "count": 1
+    },
+    {
+        "tag": "Binary Indexed Tree",
+        "count": 1
+    },
+    {
+        "tag": "Backtracking",
+        "count": 1
+    }
+]

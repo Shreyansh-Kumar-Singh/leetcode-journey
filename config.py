@@ -27,9 +27,6 @@ COOKIES = {
 }
 
 
-# Class-based access, e.g. `from config import Config` then `Config.HEADERS`
-# or `Config().HEADERS`. Mirrors the module-level variables above so both
-# import styles keep working.
 class Config:
     GRAPHQL_URL = GRAPHQL_URL
 

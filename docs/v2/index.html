@@ -1,1140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LeetCode Journey | Dashboard</title>
-
-    <meta name="description"
-        content="Modern LeetCode analytics dashboard showing solved problems, submissions, streaks, heatmap and progress.">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · LeetCode Journey</title>
+<meta name="description" content="Personal LeetCode analytics dashboard — problems solved, streaks, languages, and submission history.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232ee6c4%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%2305130f%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
-    <div class="sidebar-backdrop"></div>
-
-    <div class="app-shell">
-
-        <!-- ===================== SIDEBAR ===================== -->
-
-        <aside class="sidebar">
-
-            <div class="brand">
-
-                <div class="brand-mark">
-                    &lt;/&gt;
-                </div>
-
-                <div>
-
-                    <div class="brand-title">
-                        LeetCode Journey
-                    </div>
-
-                    <div class="brand-sub" id="sidebar-username">
-                        @loading...
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="nav-section-label">
-                OVERVIEW
-            </div>
-
-            <ul class="nav-list">
-
-                <li>
-
-                    <a href="index.html" class="nav-item active">
-
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-                            <rect x="3" y="3" width="7" height="9" rx="2" />
-
-                            <rect x="14" y="3" width="7" height="5" rx="2" />
-
-                            <rect x="14" y="12" width="7" height="9" rx="2" />
-
-                            <rect x="3" y="16" width="7" height="5" rx="2" />
-
-                        </svg>
-
-                        Dashboard
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="analytics.html" class="nav-item">
-
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-                            <path d="M3 3v18h18" />
-                            <path d="M7 15l4-5 3 3 5-7" />
-
-                        </svg>
-
-                        Analytics
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-            <div class="nav-section-label">
-
-                EXPLORE
-
-            </div>
-
-            <ul class="nav-list">
-
-                <li>
-
-                    <a href="problems.html" class="nav-item">
-
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-                            <path d="M9 4h11" />
-
-                            <path d="M9 12h11" />
-
-                            <path d="M9 20h11" />
-
-                            <circle cx="4" cy="4" r="1.6" />
-
-                            <circle cx="4" cy="12" r="1.6" />
-
-                            <circle cx="4" cy="20" r="1.6" />
-
-                        </svg>
-
-                        Problems
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="heatmap.html" class="nav-item">
-
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-                            <rect x="3" y="4" width="18" height="17" rx="2" />
-
-                            <path d="M3 9h18" />
-
-                            <path d="M8 3v3" />
-
-                            <path d="M16 3v3" />
-
-                        </svg>
-
-                        Heatmap
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="submissions.html" class="nav-item">
-
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-                            <path d="M14 3v5h5" />
-
-                            <path d="M6 3h8l5 5v13H6z" />
-
-                            <path d="M9 13h6" />
-
-                            <path d="M9 17h6" />
-
-                        </svg>
-
-                        Submissions
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-            <div style="flex:1"></div>
-
-            <div class="card">
-
-                <div style="
-                color:var(--muted);
-                font-size:13px;
-                margin-bottom:8px;
-                ">
-
-                    CURRENT STREAK
-
-                </div>
-
-                <div id="term-current-streak" style="
-                font-size:34px;
-                font-weight:800;
-                ">
-
-                    ...
-
-                </div>
-
-                <div style="
-                color:var(--green);
-                margin-top:6px;
-                ">
-
-                    Keep Coding 🔥
-
-                </div>
-
-            </div>
-
-        </aside>
-
-        <!-- ===================== MAIN ===================== -->
-
-        <div class="main-col">
-
-            <header class="navbar">
-
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <div>
-
-                    <div class="page-title">
-
-                        Dashboard
-
-                    </div>
-
-                    <div class="page-subtitle">
-
-                        Your coding journey beautifully visualized
-
-                    </div>
-
-                </div>
-
-                <div style="
-                display:flex;
-                align-items:center;
-                gap:12px;
-                ">
-
-                    <div class="card" style="
-                    padding:10px 16px;
-                    ">
-
-                        Updated
-
-                        <strong id="last-updated-text">
-
-                            --
-
-                        </strong>
-
-                    </div>
-
-                    <button class="icon-btn" data-theme-toggle>
-
-                        🌙
-
-                    </button>
-
-                </div>
-
-            </header>
-
-            <main class="page-content">
-
-                <!-- PART 2 STARTS HERE -->
-                <!-- ==========================================================
-                     HERO SECTION
-========================================================== -->
-
-                <section class="hero-dashboard">
-
-                    <div class="card hero-card">
-
-                        <div class="hero-left">
-
-                            <div class="profile-avatar" id="profile-avatar">
-                                SK
-                            </div>
-
-                            <div>
-
-                                <h1 id="profile-name">
-                                    Loading...
-                                </h1>
-
-                                <div class="hero-username" id="profile-username">
-
-                                    @loading
-
-                                </div>
-
-                                <div class="hero-badges">
-
-                                    <span class="badge badge-blue">
-                                        🚀 LeetCode
-                                    </span>
-
-                                    <span class="badge badge-green">
-                                        Active Coder
-                                    </span>
-
-                                    <span class="badge badge-purple">
-                                        Open Source
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="hero-right">
-
-                            <button class="btn" data-export-stats>
-
-                                ⬇ Export Data
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================================
- QUICK STATS
-========================================================== -->
-
-                <section class="stats-grid">
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Problems Solved
-
-                            </div>
-
-                            <div class="stat-number" id="total-solved">
-
-                                0
-
-                            </div>
-
-                            <div class="trend-positive">
-
-                                ▲ Keep going
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🏆
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Acceptance Rate
-
-                            </div>
-
-                            <div class="stat-number" id="acceptance-rate">
-
-                                0%
-
-                            </div>
-
-                            <div class="trend-positive">
-
-                                Excellent
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🎯
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Current Streak
-
-                            </div>
-
-                            <div class="stat-number" id="current-streak">
-
-                                0
-
-                            </div>
-
-                            <div class="trend-positive">
-
-                                Days
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🔥
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Longest Streak
-
-                            </div>
-
-                            <div class="stat-number" id="longest-streak">
-
-                                0
-
-                            </div>
-
-                            <div class="trend-positive">
-
-                                Best
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            ⭐
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================================
- SECOND ROW
-========================================================== -->
-
-                <section class="stats-grid">
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Ranking
-
-                            </div>
-
-                            <div class="stat-number" id="ranking">
-
-                                --
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🥇
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Easy
-
-                            </div>
-
-                            <div class="stat-number" id="easy-count">
-
-                                0
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🟢
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Medium
-
-                            </div>
-
-                            <div class="stat-number" id="medium-count">
-
-                                0
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🟡
-
-                        </div>
-
-                    </div>
-
-                    <div class="card stat-card">
-
-                        <div>
-
-                            <div class="stat-label">
-
-                                Hard
-
-                            </div>
-
-                            <div class="stat-number" id="hard-count">
-
-                                0
-
-                            </div>
-
-                        </div>
-
-                        <div class="stat-icon">
-
-                            🔴
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================================
- PRODUCTIVITY
-========================================================== -->
-
-                <section class="grid-2">
-
-                    <div class="card">
-
-                        <h2>
-
-                            📈 Weekly Progress
-
-                        </h2>
-
-                        <p class="page-subtitle">
-
-                            Coding activity during the last 7 days
-
-                        </p>
-
-                        <canvas id="weeklyChart" height="120">
-
-                        </canvas>
-
-                    </div>
-
-                    <div class="card">
-
-                        <h2>
-
-                            ⚡ Difficulty Distribution
-
-                        </h2>
-
-                        <p class="page-subtitle">
-
-                            Solved Problems
-
-                        </p>
-
-                        <canvas id="difficultyChart" height="120">
-
-                        </canvas>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================================
- PART 3 STARTS HERE
-========================================================== -->
-                <!-- ==========================================================
-LANGUAGE + TAGS
-========================================================== -->
-
-                <section class="grid-2">
-
-                    <div class="card">
-
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-
-                            <div>
-
-                                <h2>💻 Language Distribution</h2>
-
-                                <p class="page-subtitle">
-                                    Programming languages used
-                                </p>
-
-                            </div>
-
-                            <span class="badge badge-blue">
-                                Updated Live
-                            </span>
-
-                        </div>
-
-                        <canvas id="languageChart" height="140">
-                        </canvas>
-
-                    </div>
-
-                    <div class="card">
-
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-
-                            <div>
-
-                                <h2>🏷 Top Tags</h2>
-
-                                <p class="page-subtitle">
-
-                                    Most practiced topics
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div id="top-tags" class="tags-grid">
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- ==========================================================
-RECENT SUBMISSIONS
-========================================================== -->
-
-                <section style="margin-top:28px;">
-
-                    <div class="card">
-
-                        <div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-">
-
-                            <div>
-
-                                <h2>
-
-                                    📝 Recent Submissions
-
-                                </h2>
-
-                                <p class="page-subtitle">
-
-                                    Latest coding activity
-
-                                </p>
-
-                            </div>
-
-                            <button class="btn">
-
-                                View All
-
-                            </button>
-
-                        </div>
-
-                        <div id="recent-submissions">
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- ==========================================================
-ACHIEVEMENTS
-========================================================== -->
-
-                <section style="
-margin-top:28px;
-">
-
-                    <div class="grid-2">
-
-                        <div class="card">
-
-                            <h2>
-
-                                🏅 Achievements
-
-                            </h2>
-
-                            <div class="achievement-grid">
-
-                                <div class="achievement">
-
-                                    <div class="achievement-icon">
-
-                                        🔥
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class="achievement-title">
-
-                                            Current Streak
-
-                                        </div>
-
-                                        <div id="achievement-streak">
-
-                                            0 Days
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="achievement">
-
-                                    <div class="achievement-icon">
-
-                                        ⭐
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class="achievement-title">
-
-                                            Longest Streak
-
-                                        </div>
-
-                                        <div id="achievement-longest">
-
-                                            0 Days
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="achievement">
-
-                                    <div class="achievement-icon">
-
-                                        🚀
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class="achievement-title">
-
-                                            Total Accepted
-
-                                        </div>
-
-                                        <div id="accepted-total">
-
-                                            0
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="achievement">
-
-                                    <div class="achievement-icon">
-
-                                        📈
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class="achievement-title">
-
-                                            Acceptance Rate
-
-                                        </div>
-
-                                        <div id="accepted-rate">
-
-                                            0%
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="card">
-
-                            <h2>
-
-                                ⚡ Coding Summary
-
-                            </h2>
-
-                            <div class="summary-grid">
-
-                                <div class="summary-box">
-
-                                    <div class="summary-title">
-
-                                        Easy
-
-                                    </div>
-
-                                    <div id="summary-easy">
-
-                                        0
-
-                                    </div>
-
-                                </div>
-
-                                <div class="summary-box">
-
-                                    <div class="summary-title">
-
-                                        Medium
-
-                                    </div>
-
-                                    <div id="summary-medium">
-
-                                        0
-
-                                    </div>
-
-                                </div>
-
-                                <div class="summary-box">
-
-                                    <div class="summary-title">
-
-                                        Hard
-
-                                    </div>
-
-                                    <div id="summary-hard">
-
-                                        0
-
-                                    </div>
-
-                                </div>
-
-                                <div class="summary-box">
-
-                                    <div class="summary-title">
-
-                                        Submissions
-
-                                    </div>
-
-                                    <div id="summary-submissions">
-
-                                        0
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- ==========================================================
-MINI HEATMAP PREVIEW
-========================================================== -->
-
-                <section style="
-margin-top:28px;
-">
-
-                    <div class="card">
-
-                        <div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-">
-
-                            <div>
-
-                                <h2>
-
-                                    📅 Activity Overview
-
-                                </h2>
-
-                                <p class="page-subtitle">
-
-                                    Contribution calendar preview
-
-                                </p>
-
-                            </div>
-
-                            <a href="heatmap.html" class="btn">
-
-                                Open Full Heatmap
-
-                            </a>
-
-                        </div>
-
-                        <div style="
-margin-top:25px;
-">
-
-                            <div id="mini-heatmap">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- ==========================================================
-FOOTER
-========================================================== -->
-
-                <footer style="
-margin-top:45px;
-margin-bottom:25px;
-text-align:center;
-color:var(--muted);
-">
-
-                    Made with ❤️ using HTML, CSS, JavaScript & Chart.js
-
-                </footer>
-                <!-- ==========================================================
-SCROLL TO TOP
-========================================================== -->
-
-                <button class="scroll-top-btn" id="scrollTop">
-
-                    ↑
-
-                </button>
-
-            </main>
-
+<div class="sidebar-backdrop"></div>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">&lt;/&gt;</div>
+      <div class="brand-text">
+        <div class="brand-title">LeetCode Journey</div>
+        <div class="brand-sub" id="sidebar-username">@loading</div>
+      </div>
+    </div>
+
+    <div class="nav-section-label">Overview</div>
+    <ul class="nav-list">
+      <li><a href="index.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard
+      </a></li>
+      <li><a href="analytics.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+        Analytics
+      </a></li>
+    </ul>
+
+    <div class="nav-section-label">Explore</div>
+    <ul class="nav-list">
+      <li><a href="problems.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4h11M9 12h11M9 20h11"/><circle cx="4" cy="4" r="1.6"/><circle cx="4" cy="12" r="1.6"/><circle cx="4" cy="20" r="1.6"/></svg>
+        Problems
+      </a></li>
+      <li><a href="heatmap.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/><path d="M8 3v3M16 3v3"/></svg>
+        Heatmap
+      </a></li>
+      <li><a href="submissions.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg>
+        Submissions
+      </a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="streak-terminal">
+        <div><span class="term-prompt">$</span> streak --current</div>
+        <div id="term-current-streak">…<span class="term-cursor"></span></div>
+      </div>
+      <button class="repo-link-btn" data-copy-repo>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 9a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-1"/><path d="M15 15a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h1"/></svg>
+        Copy repo link
+      </button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">Your complete LeetCode progress at a glance</div>
         </div>
-
-    </div>
-
-    <!-- ==========================================================
-LOADING OVERLAY
-========================================================== -->
-
-    <div id="loading-overlay">
-
-        <div class="loader-card">
-
-            <div class="loader-spinner"></div>
-
-            <h2>
-
-                Loading Dashboard...
-
-            </h2>
-
-            <p>
-
-                Fetching your latest LeetCode statistics
-
-            </p>
-
+      </div>
+      <div class="navbar-right">
+        <div class="last-updated-badge">
+          <span class="dot"></span><span>Updated <span id="last-updated-text">—</span></span>
         </div>
+        <button class="icon-btn" data-export-stats title="Export statistics as JSON">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+        </button>
+        <button class="icon-btn" data-theme-toggle title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        </button>
+      </div>
+    </header>
 
-    </div>
+    <main class="page-content">
 
-    <!-- ==========================================================
-TOAST
-========================================================== -->
+      <!-- Stat cards -->
+      <div class="stats-grid" id="stats-grid">
+        <!-- skeletons injected by JS while loading -->
+      </div>
 
-    <div id="toast" class="toast">
+      <div class="grid-2">
+        <div class="card panel">
+          <div class="section-title">Difficulty distribution</div>
+          <div class="section-desc">Problems solved by difficulty tier</div>
+          <div class="chart-wrap"><canvas id="chart-difficulty"></canvas></div>
+        </div>
+        <div class="card panel">
+          <div class="section-title">Language distribution</div>
+          <div class="section-desc">Submissions grouped by language</div>
+          <div class="chart-wrap"><canvas id="chart-language"></canvas></div>
+        </div>
+      </div>
 
-        <span id="toast-text">
+      <div class="grid-2">
+        <div class="card panel">
+          <div class="section-title">Recent submissions</div>
+          <div class="section-desc">Your latest activity</div>
+          <div id="recent-submissions"></div>
+        </div>
+        <div class="card panel">
+          <div class="section-title">Top tags</div>
+          <div class="section-desc">Most practiced problem categories</div>
+          <div id="top-tags"></div>
+        </div>
+      </div>
 
-            Done
+    </main>
+  </div>
+</div>
 
-        </span>
+<button class="scroll-top-btn" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
-    </div>
-
-    <!-- ==========================================================
-SCRIPTS
-========================================================== -->
-
-    <script src="js/app.js"></script>
-
-    <script src="js/github.js"></script>
-
-    <script src="js/dashboard.js"></script>
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const loading = document.getElementById("loading-overlay");
-
-            window.addEventListener("load", () => {
-
-                loading.style.opacity = "0";
-
-                setTimeout(() => {
-
-                    loading.remove();
-
-                }, 400);
-
-            });
-
-            const btn = document.getElementById("scrollTop");
-
-            window.addEventListener("scroll", () => {
-
-                if (window.scrollY > 300) {
-
-                    btn.classList.add("show");
-
-                } else {
-
-                    btn.classList.remove("show");
-
-                }
-
-            });
-
-            btn.onclick = () => {
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            };
-
-        });
-
-    </script>
-
+<script src="js/app.js"></script>
+<script src="js/github.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
-
 </html>

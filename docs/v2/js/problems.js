@@ -8,12 +8,11 @@
   const difficultyFilter = document.getElementById('filter-difficulty');
   const tagFilter = document.getElementById('filter-tag');
   const statusFilter = document.getElementById('filter-status');
-  const topicChips = document.getElementById('topic-chips');
   const paginationInfo = document.getElementById('pagination-info');
   const paginationControls = document.getElementById('pagination-controls');
   const subtitle = document.getElementById('problems-count-subtitle');
 
-  const PAGE_SIZE = 15;
+  const PAGE_SIZE = 10;
   let state = {
     all: [],
     filtered: [],
@@ -37,7 +36,6 @@
     subtitle.textContent = `${questions.length} problems tracked`;
 
     populateTagFilter(questions);
-    renderTopicChips(questions);
     applyFilters();
   } catch (err) {
     console.error(err);
@@ -56,41 +54,6 @@
       opt.value = tag;
       opt.textContent = tag;
       tagFilter.appendChild(opt);
-    });
-  }
-
-  function renderTopicChips(questions) {
-    const counts = new Map();
-    questions.forEach(q => (q.tags || []).forEach(t => counts.set(t, (counts.get(t) || 0) + 1)));
-    const topics = [...counts.entries()].sort((a, b) => b[1] - a[1]);
-
-    if (topics.length === 0) {
-      topicChips.innerHTML = `<span style="color:var(--text-muted); font-size:13px;">No topics found</span>`;
-      return;
-    }
-
-    topicChips.innerHTML = topics.map(([tag, count]) => `
-      <button type="button" class="topic-chip" data-tag="${tag}">
-        ${tag}
-        <span class="topic-chip-count">${count}</span>
-      </button>
-    `).join('');
-
-    topicChips.querySelectorAll('.topic-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const tag = chip.dataset.tag;
-        const isActive = chip.classList.contains('active');
-        tagFilter.value = isActive ? '' : tag;
-        syncTopicChips();
-        applyFilters();
-      });
-    });
-  }
-
-  function syncTopicChips() {
-    const active = tagFilter.value;
-    topicChips.querySelectorAll('.topic-chip').forEach(chip => {
-      chip.classList.toggle('active', chip.dataset.tag === active);
     });
   }
 
@@ -146,13 +109,16 @@
       tbody.innerHTML = pageItems.map((q, i) => `
         <tr>
           <td>${start + i + 1}</td>
-          <td>${q.frontend_id}</td>
           <td><a class="problem-link" href="https://leetcode.com/problems/${q.title_slug}/" target="_blank" rel="noopener">${q.title}</a></td>
           <td><span class="badge ${q.difficulty.toLowerCase()}">${q.difficulty}</span></td>
           <td><span class="badge ${q.status === 'SOLVED' ? 'solved' : 'unsolved'}">${q.status}</span></td>
           <td><div class="tag-list-bar">${(q.tags || []).slice(0, 3).map(t => `<span class="tag-pill">${t}</span>`).join('')}${(q.tags || []).length > 3 ? `<span class="tag-pill">+${q.tags.length - 3}</span>` : ''}</div></td>
           <td>${App.formatDate(q.last_submitted_at)}</td>
           <td>${q.num_submitted}</td>
+          <td><button class="row-action-btn" data-history-slug="${q.title_slug}" data-history-title="${q.title.replace(/"/g, '&quot;')}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg>
+            View
+          </button></td>
         </tr>
       `).join('');
     }
@@ -210,6 +176,12 @@
 
   searchInput.addEventListener('input', App.debounce(applyFilters, 200));
   difficultyFilter.addEventListener('change', applyFilters);
-  tagFilter.addEventListener('change', () => { syncTopicChips(); applyFilters(); });
+  tagFilter.addEventListener('change', applyFilters);
   statusFilter.addEventListener('change', applyFilters);
+
+  tbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-history-slug]');
+    if (!btn) return;
+    App.openSubmissionHistory(btn.dataset.historySlug, btn.dataset.historyTitle);
+  });
 })();

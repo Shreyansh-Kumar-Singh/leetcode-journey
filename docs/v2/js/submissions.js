@@ -48,7 +48,7 @@
 
   } catch (err) {
     console.error(err);
-    tbody.innerHTML = `<tr><td colspan="7"><div class="error-state">
+    tbody.innerHTML = `<tr><td colspan="8"><div class="error-state">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
       <div class="title">Could not load submissions</div>${err.message}
     </div></td></tr>`;
@@ -147,7 +147,7 @@
     const pageItems = state.filtered.slice(start, start + PAGE_SIZE);
 
     if (total === 0) {
-      tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">
+      tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <div class="title">No submissions match your filters</div>Try clearing search or filters.
       </div></td></tr>`;
@@ -163,6 +163,10 @@
           <td>${s.memory || '—'}</td>
           <td><span class="badge ${ac ? 'ac' : 'fail'}">${s.status_display}</span></td>
           <td>${App.formatDate(new Date(Number(s.timestamp) * 1000))}</td>
+          <td><button class="row-action-btn" data-history-slug="${s.question_slug}" data-history-title="${s.question.replace(/"/g, '&quot;')}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg>
+            View
+          </button></td>
         </tr>`;
       }).join('');
     }
@@ -222,4 +226,10 @@
   languageFilter.addEventListener('change', applyFilters);
   statusFilter.addEventListener('change', applyFilters);
   dateFilter.addEventListener('change', applyFilters);
+
+  tbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-history-slug]');
+    if (!btn) return;
+    App.openSubmissionHistory(btn.dataset.historySlug, btn.dataset.historyTitle);
+  });
 })();

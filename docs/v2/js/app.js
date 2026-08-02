@@ -125,6 +125,134 @@ const App = (() => {
     return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
+  function formatTime(dateInput) {
+    const date = new Date(dateInput);
+    if (isNaN(date)) return '—';
+    return date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function formatDayHeader(dateInput) {
+    const date = new Date(dateInput);
+    if (isNaN(date)) return '—';
+    return date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  /* ------------------------------------------------------------------
+     Submission-history modal — shows every submitted attempt for a
+     single question, grouped day by day. Triggered from the "History"
+     action button on the Problems and Submissions pages.
+     ------------------------------------------------------------------ */
+
+  function ensureModal() {
+    let modal = document.getElementById('lj-modal-root');
+    if (modal) return modal;
+
+    modal = document.createElement('div');
+    modal.id = 'lj-modal-root';
+    modal.className = 'lj-modal-backdrop';
+    modal.innerHTML = `
+      <div class="lj-modal" role="dialog" aria-modal="true" aria-labelledby="lj-modal-title">
+        <div class="lj-modal-header">
+          <div>
+            <div class="lj-modal-title" id="lj-modal-title">Submission history</div>
+            <div class="lj-modal-subtitle" id="lj-modal-subtitle"></div>
+          </div>
+          <button class="lj-modal-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="lj-modal-body" id="lj-modal-body"></div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    modal.querySelector('.lj-modal-close').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+
+    return modal;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('lj-modal-root');
+    if (!modal) return;
+    modal.classList.remove('show');
+    document.body.classList.remove('lj-modal-open');
+  }
+
+  function statusBadgeClass(statusDisplay) {
+    return statusDisplay === 'Accepted' ? 'ac' : 'fail';
+  }
+
+  async function openSubmissionHistory(titleSlug, titleText) {
+    if (typeof GitHubData === 'undefined') return;
+    const modal = ensureModal();
+    const titleEl = document.getElementById('lj-modal-title');
+    const subtitleEl = document.getElementById('lj-modal-subtitle');
+    const body = document.getElementById('lj-modal-body');
+
+    titleEl.textContent = titleText || 'Submission history';
+    subtitleEl.textContent = 'Loading every attempt for this problem…';
+    body.innerHTML = `<div class="skeleton skel-row"></div><div class="skeleton skel-row"></div><div class="skeleton skel-row"></div>`;
+
+    modal.classList.add('show');
+    document.body.classList.add('lj-modal-open');
+
+    try {
+      const submissions = await GitHubData.getSubmissions();
+      const list = submissions
+        .filter(s => s.question_slug === titleSlug)
+        .sort((a, b) => Number(b.timestamp) - Number(a.timestamp));
+
+      if (list.length === 0) {
+        subtitleEl.textContent = 'No recorded attempts yet';
+        body.innerHTML = `<div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <div class="title">No submissions found</div>This problem has no recorded attempts.
+        </div>`;
+        return;
+      }
+
+      const groups = {};
+      list.forEach(s => {
+        const d = new Date(Number(s.timestamp) * 1000);
+        const key = d.toISOString().slice(0, 10);
+        (groups[key] = groups[key] || []).push(s);
+      });
+      const dayKeys = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+
+      subtitleEl.textContent = `${list.length} submission${list.length === 1 ? '' : 's'} across ${dayKeys.length} day${dayKeys.length === 1 ? '' : 's'}`;
+
+      body.innerHTML = dayKeys.map(key => {
+        const items = groups[key];
+        const dayLabel = formatDayHeader(new Date(Number(items[0].timestamp) * 1000));
+        return `
+        <div class="submission-day-group">
+          <div class="submission-day-header">
+            <span>${dayLabel}</span>
+            <span class="submission-day-count">${items.length} attempt${items.length === 1 ? '' : 's'}</span>
+          </div>
+          <div class="submission-day-items">
+            ${items.map(s => `
+              <div class="submission-item">
+                <span class="badge ${statusBadgeClass(s.status_display)}">${s.status_display}</span>
+                <span class="submission-item-lang">${s.language_name}</span>
+                <span class="submission-item-time">${formatTime(new Date(Number(s.timestamp) * 1000))}</span>
+                <span class="submission-item-runtime">${s.runtime || '—'}</span>
+                <span class="submission-item-memory">${s.memory || '—'}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
+      }).join('');
+    } catch (err) {
+      subtitleEl.textContent = '';
+      body.innerHTML = `<div class="error-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div class="title">Could not load submissions</div>${err.message}
+      </div>`;
+    }
+  }
+
   function debounce(fn, wait = 250) {
     let t;
     return (...args) => {
@@ -180,5 +308,8 @@ const App = (() => {
 
   document.addEventListener('DOMContentLoaded', init);
 
-  return { toggleTheme, toast, animateCount, setActiveNav, timeAgo, formatDate, debounce, chartDefaults };
+  return {
+    toggleTheme, toast, animateCount, setActiveNav, timeAgo, formatDate, formatTime,
+    formatDayHeader, debounce, chartDefaults, openSubmissionHistory, closeModal,
+  };
 })();

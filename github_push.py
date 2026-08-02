@@ -1,9 +1,3 @@
-"""Git automation: add, commit, and push the generated JSON data.
-
-Usage:
-    python github_push.py
-"""
-
 from __future__ import annotations
 
 import subprocess
@@ -13,12 +7,7 @@ from typing import List, Optional
 
 
 class GitHubPush:
-    """Adds, commits, and pushes repository changes to GitHub.
-
-    Attributes:
-        repo_dir: Directory the git commands are executed in. Defaults
-            to the current working directory.
-    """
+   
 
     def __init__(self, repo_dir: Optional[Path] = None) -> None:
         """Initialize the pusher.

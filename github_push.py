@@ -15,7 +15,8 @@ class GitHubPush:
         Args:
             repo_dir: Path to the git repository. Defaults to ``Path.cwd()``.
         """
-        self.repo_dir: Path = repo_dir or Path.cwd()
+        # self.repo_dir: Path = repo_dir or Path.cwd()
+        self.repo_dir: Path = repo_dir or Path(__file__).parent
 
     def _run(self, args: List[str]) -> subprocess.CompletedProcess:
         """Run a git command via subprocess and capture its output.
@@ -102,6 +103,7 @@ class GitHubPush:
         print("=" * 50)
         print("Pushing to GitHub")
         print("=" * 50)
+        print(f"Repository: {self.repo_dir}")
 
         if not self.add():
             return False

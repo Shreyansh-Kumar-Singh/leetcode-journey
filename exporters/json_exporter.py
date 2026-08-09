@@ -31,13 +31,21 @@ class JSONExporter:
     """Coordinates all individual exporters against a shared connection.
 
     Responsible for:
-        * Ensuring ``output/data/`` exists.
+        * Ensuring every output directory exists.
         * Opening a single SQLite connection/cursor shared by every
           exporter (so each exporter does not have to manage its own).
-        * Calling ``export()`` on each registered exporter, in order.
+        * Calling ``export()`` on each registered exporter, for each
+          output directory, in order.
     """
 
-    OUTPUT_DIR: Path = Path("docs") / "data"
+    # Both live dashboards read their data from a sibling ``data/``
+    # folder (see docs/v1/js/github.js and docs/v2/js/github.js), so
+    # every export run has to write to both locations. ``docs/data``
+    # is not read by anything and is intentionally not included.
+    OUTPUT_DIRS: List[Path] = [
+        Path("docs") / "v1" / "data",
+        Path("docs") / "v2" / "data",
+    ]
 
     def __init__(self, db_path: Optional[str] = None) -> None:
         """Initialize the coordinator.
@@ -50,9 +58,10 @@ class JSONExporter:
         self.conn: Optional[sqlite3.Connection] = None
         self.cursor: Optional[sqlite3.Cursor] = None
 
-    def _prepare_output_dir(self) -> None:
-        """Create ``docs/data/`` if it does not already exist."""
-        self.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    def _prepare_output_dirs(self) -> None:
+        """Create every output directory if it does not already exist."""
+        for output_dir in self.OUTPUT_DIRS:
+            output_dir.mkdir(parents=True, exist_ok=True)
 
     def _connect(self) -> None:
         """Open the shared SQLite connection and cursor.
@@ -75,8 +84,12 @@ class JSONExporter:
             self.conn = None
             self.cursor = None
 
-    def _build_exporters(self) -> List[BaseExporter]:
+    def _build_exporters(self, output_dir: Path) -> List[BaseExporter]:
         """Instantiate every exporter with the shared cursor and output dir.
+
+        Args:
+            output_dir: Destination directory this batch of exporters
+                should write to.
 
         Returns:
             The list of exporter instances to run, in execution order.
@@ -84,27 +97,29 @@ class JSONExporter:
         assert self.cursor is not None  # set by _connect()
 
         return [
-            ProfileExporter(self.cursor, self.OUTPUT_DIR),
-            StatsExporter(self.cursor, self.OUTPUT_DIR),
-            QuestionsExporter(self.cursor, self.OUTPUT_DIR),
-            SubmissionsExporter(self.cursor, self.OUTPUT_DIR),
-            HeatmapExporter(self.cursor, self.OUTPUT_DIR),
-            TagsExporter(self.cursor, self.OUTPUT_DIR),
-            LanguagesExporter(self.cursor, self.OUTPUT_DIR),
+            ProfileExporter(self.cursor, output_dir),
+            StatsExporter(self.cursor, output_dir),
+            QuestionsExporter(self.cursor, output_dir),
+            SubmissionsExporter(self.cursor, output_dir),
+            HeatmapExporter(self.cursor, output_dir),
+            TagsExporter(self.cursor, output_dir),
+            LanguagesExporter(self.cursor, output_dir),
         ]
 
     def export(self) -> None:
-        """Run every exporter and write all JSON files to ``output/data/``."""
+        """Run every exporter and write all JSON files to every output dir."""
         print("=" * 50)
         print("Generating JSON Files")
         print("=" * 50)
 
-        self._prepare_output_dir()
+        self._prepare_output_dirs()
         self._connect()
 
         try:
-            for exporter in self._build_exporters():
-                exporter.export()
+            for output_dir in self.OUTPUT_DIRS:
+                print(f"\n-> {output_dir}")
+                for exporter in self._build_exporters(output_dir):
+                    exporter.export()
         finally:
             self._close()
 

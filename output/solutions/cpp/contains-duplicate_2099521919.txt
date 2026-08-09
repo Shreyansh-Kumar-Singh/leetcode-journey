@@ -1,0 +1,12 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> ans;
+        for (auto i : nums) {
+            if (ans.count(i))
+                return true;
+            ans.insert(i);
+        }
+        return false;
+    }
+};

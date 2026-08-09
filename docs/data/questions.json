@@ -70,7 +70,8 @@
         "tags": [
             "Two Pointers",
             "String",
-            "Dynamic Programming"
+            "Dynamic Programming",
+            "Manacher"
         ]
     },
     {
@@ -227,7 +228,8 @@
         "num_submitted": 4,
         "tags": [
             "String",
-            "Stack"
+            "Stack",
+            "Bracket Sequences"
         ]
     },
     {
@@ -257,7 +259,8 @@
             "Linked List",
             "Divide and Conquer",
             "Heap (Priority Queue)",
-            "Merge Sort"
+            "Merge Sort",
+            "Tournament Sort"
         ]
     },
     {
@@ -328,7 +331,10 @@
         "tags": [
             "Two Pointers",
             "String",
-            "String Matching"
+            "String Matching",
+            "Z Algorithm",
+            "Knuth–Morris–Pratt Algorithm",
+            "Boyer–Moore String-Search Algorithm"
         ]
     },
     {
@@ -394,11 +400,39 @@
         "difficulty": "EASY",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2026-06-16T09:33:14+00:00",
-        "num_submitted": 1,
+        "last_submitted_at": "2026-08-09T18:45:46+00:00",
+        "num_submitted": 2,
         "tags": [
             "Array",
             "Binary Search"
+        ]
+    },
+    {
+        "frontend_id": "39",
+        "title": "Combination Sum",
+        "title_slug": "combination-sum",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-07T20:22:06+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Backtracking"
+        ]
+    },
+    {
+        "frontend_id": "40",
+        "title": "Combination Sum II",
+        "title_slug": "combination-sum-ii",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-07T20:36:42+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Array",
+            "Backtracking"
         ]
     },
     {
@@ -431,6 +465,22 @@
             "Array",
             "Math",
             "Matrix"
+        ]
+    },
+    {
+        "frontend_id": "49",
+        "title": "Group Anagrams",
+        "title_slug": "group-anagrams",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-08T20:12:33+00:00",
+        "num_submitted": 7,
+        "tags": [
+            "Array",
+            "Hash Table",
+            "String",
+            "Sorting"
         ]
     },
     {
@@ -488,7 +538,8 @@
         "num_submitted": 7,
         "tags": [
             "Array",
-            "Sorting"
+            "Sorting",
+            "Quicksort"
         ]
     },
     {
@@ -591,7 +642,9 @@
         "tags": [
             "Array",
             "Two Pointers",
-            "Sorting"
+            "Sorting",
+            "Quicksort",
+            "Bubble Sort"
         ]
     },
     {
@@ -836,7 +889,8 @@
         "tags": [
             "Hash Table",
             "Linked List",
-            "Two Pointers"
+            "Two Pointers",
+            "Floyd's Cycle Finding Algorithm"
         ]
     },
     {
@@ -851,7 +905,8 @@
         "tags": [
             "Hash Table",
             "Linked List",
-            "Two Pointers"
+            "Two Pointers",
+            "Floyd's Cycle Finding Algorithm"
         ]
     },
     {
@@ -948,6 +1003,20 @@
         ]
     },
     {
+        "frontend_id": "153",
+        "title": "Find Minimum in Rotated Sorted Array",
+        "title_slug": "find-minimum-in-rotated-sorted-array",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-09T18:31:04+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Binary Search"
+        ]
+    },
+    {
         "frontend_id": "155",
         "title": "Min Stack",
         "title_slug": "min-stack",
@@ -1019,7 +1088,8 @@
             "Hash Table",
             "Divide and Conquer",
             "Sorting",
-            "Counting"
+            "Counting",
+            "Boyer–Moore Majority Vote Algorithm"
         ]
     },
     {
@@ -1075,7 +1145,8 @@
         "tags": [
             "Hash Table",
             "Math",
-            "Two Pointers"
+            "Two Pointers",
+            "Floyd's Cycle Finding Algorithm"
         ]
     },
     {
@@ -1107,6 +1178,21 @@
         ]
     },
     {
+        "frontend_id": "217",
+        "title": "Contains Duplicate",
+        "title_slug": "contains-duplicate",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-08T18:56:43+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Array",
+            "Hash Table",
+            "Sorting"
+        ]
+    },
+    {
         "frontend_id": "219",
         "title": "Contains Duplicate II",
         "title_slug": "contains-duplicate-ii",
@@ -1134,7 +1220,8 @@
             "Array",
             "Hash Table",
             "Sorting",
-            "Counting"
+            "Counting",
+            "Boyer–Moore Majority Vote Algorithm"
         ]
     },
     {
@@ -1179,6 +1266,20 @@
         "num_submitted": 4,
         "tags": [
             "Linked List"
+        ]
+    },
+    {
+        "frontend_id": "238",
+        "title": "Product of Array Except Self",
+        "title_slug": "product-of-array-except-self",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-09T06:40:54+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Prefix Sum"
         ]
     },
     {
@@ -1241,7 +1342,9 @@
             "Array",
             "Two Pointers",
             "Binary Search",
-            "Bit Manipulation"
+            "Bit Manipulation",
+            "Pigeonhole Principle",
+            "Floyd's Cycle Finding Algorithm"
         ]
     },
     {
@@ -1256,7 +1359,23 @@
         "tags": [
             "Array",
             "Dynamic Programming",
-            "Breadth-First Search"
+            "Breadth-First Search",
+            "Knapsack Problem",
+            "Complete Knapsack"
+        ]
+    },
+    {
+        "frontend_id": "326",
+        "title": "Power of Three",
+        "title_slug": "power-of-three",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-08T15:17:15+00:00",
+        "num_submitted": 5,
+        "tags": [
+            "Math",
+            "Recursion"
         ]
     },
     {
@@ -1313,6 +1432,26 @@
         "tags": [
             "Two Pointers",
             "String"
+        ]
+    },
+    {
+        "frontend_id": "347",
+        "title": "Top K Frequent Elements",
+        "title_slug": "top-k-frequent-elements",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-08T21:53:37+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Hash Table",
+            "Divide and Conquer",
+            "Sorting",
+            "Heap (Priority Queue)",
+            "Bucket Sort",
+            "Counting",
+            "Quickselect"
         ]
     },
     {
@@ -1422,7 +1561,8 @@
             "Array",
             "Two Pointers",
             "Greedy",
-            "Sorting"
+            "Sorting",
+            "Quicksort"
         ]
     },
     {
@@ -1441,7 +1581,8 @@
             "Binary Indexed Tree",
             "Segment Tree",
             "Merge Sort",
-            "Ordered Set"
+            "Ordered Set",
+            "Treap"
         ]
     },
     {
@@ -1530,7 +1671,8 @@
             "String",
             "Dynamic Programming",
             "Stack",
-            "Greedy"
+            "Greedy",
+            "Bracket Sequences"
         ]
     },
     {
@@ -1560,6 +1702,35 @@
         "tags": [
             "Two Pointers",
             "String"
+        ]
+    },
+    {
+        "frontend_id": "704",
+        "title": "Binary Search",
+        "title_slug": "binary-search",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-09T18:19:41+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Binary Search"
+        ]
+    },
+    {
+        "frontend_id": "739",
+        "title": "Daily Temperatures",
+        "title_slug": "daily-temperatures",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-09T18:13:32+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Array",
+            "Stack",
+            "Monotonic Stack"
         ]
     },
     {

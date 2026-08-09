@@ -1,7 +1,7 @@
 [
     {
         "tag": "Array",
-        "count": 55
+        "count": 64
     },
     {
         "tag": "Two Pointers",
@@ -9,7 +9,7 @@
     },
     {
         "tag": "String",
-        "count": 28
+        "count": 29
     },
     {
         "tag": "Linked List",
@@ -17,39 +17,39 @@
     },
     {
         "tag": "Hash Table",
-        "count": 22
+        "count": 25
     },
     {
         "tag": "Sorting",
-        "count": 20
+        "count": 23
     },
     {
         "tag": "Math",
-        "count": 18
+        "count": 19
+    },
+    {
+        "tag": "Binary Search",
+        "count": 16
     },
     {
         "tag": "Bit Manipulation",
         "count": 15
     },
     {
-        "tag": "Binary Search",
-        "count": 14
+        "tag": "Recursion",
+        "count": 13
     },
     {
-        "tag": "Recursion",
-        "count": 12
+        "tag": "Stack",
+        "count": 11
     },
     {
         "tag": "Dynamic Programming",
         "count": 11
     },
     {
-        "tag": "Stack",
-        "count": 10
-    },
-    {
         "tag": "Divide and Conquer",
-        "count": 9
+        "count": 10
     },
     {
         "tag": "Simulation",
@@ -68,6 +68,10 @@
         "count": 4
     },
     {
+        "tag": "Floyd's Cycle Finding Algorithm",
+        "count": 4
+    },
+    {
         "tag": "Binary Tree",
         "count": 4
     },
@@ -76,7 +80,15 @@
         "count": 3
     },
     {
+        "tag": "Quicksort",
+        "count": 3
+    },
+    {
         "tag": "Merge Sort",
+        "count": 3
+    },
+    {
+        "tag": "Heap (Priority Queue)",
         "count": 3
     },
     {
@@ -84,19 +96,47 @@
         "count": 3
     },
     {
+        "tag": "Counting",
+        "count": 3
+    },
+    {
+        "tag": "Backtracking",
+        "count": 3
+    },
+    {
+        "tag": "Prefix Sum",
+        "count": 2
+    },
+    {
+        "tag": "Monotonic Stack",
+        "count": 2
+    },
+    {
         "tag": "Memoization",
         "count": 2
     },
     {
-        "tag": "Heap (Priority Queue)",
+        "tag": "Bracket Sequences",
         "count": 2
     },
     {
-        "tag": "Counting",
+        "tag": "Boyer–Moore Majority Vote Algorithm",
         "count": 2
+    },
+    {
+        "tag": "Z Algorithm",
+        "count": 1
     },
     {
         "tag": "Union-Find",
+        "count": 1
+    },
+    {
+        "tag": "Treap",
+        "count": 1
+    },
+    {
+        "tag": "Tournament Sort",
         "count": 1
     },
     {
@@ -108,7 +148,11 @@
         "count": 1
     },
     {
-        "tag": "Prefix Sum",
+        "tag": "Quickselect",
+        "count": 1
+    },
+    {
+        "tag": "Pigeonhole Principle",
         "count": 1
     },
     {
@@ -120,7 +164,15 @@
         "count": 1
     },
     {
-        "tag": "Monotonic Stack",
+        "tag": "Manacher",
+        "count": 1
+    },
+    {
+        "tag": "Knuth–Morris–Pratt Algorithm",
+        "count": 1
+    },
+    {
+        "tag": "Knapsack Problem",
         "count": 1
     },
     {
@@ -132,11 +184,27 @@
         "count": 1
     },
     {
+        "tag": "Complete Knapsack",
+        "count": 1
+    },
+    {
         "tag": "Combinatorics",
         "count": 1
     },
     {
+        "tag": "Bucket Sort",
+        "count": 1
+    },
+    {
+        "tag": "Bubble Sort",
+        "count": 1
+    },
+    {
         "tag": "Breadth-First Search",
+        "count": 1
+    },
+    {
+        "tag": "Boyer–Moore String-Search Algorithm",
         "count": 1
     },
     {
@@ -145,10 +213,6 @@
     },
     {
         "tag": "Binary Indexed Tree",
-        "count": 1
-    },
-    {
-        "tag": "Backtracking",
         "count": 1
     }
 ]

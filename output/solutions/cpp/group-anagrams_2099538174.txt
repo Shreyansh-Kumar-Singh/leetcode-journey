@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<string> list_anagram(vector<string>& strs, string a) {
+        vector<string> ans;
+
+        string sortedA = a;
+        sort(sortedA.begin(), sortedA.end());
+
+        for (auto i : strs) {
+            if (sortedA.size() != i.size())
+                continue;
+
+            string temp = i;
+            sort(temp.begin(), temp.end());
+
+            if (sortedA == temp)
+                ans.push_back(i);
+        }
+
+        return ans;
+    }
+
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> ans;
+        set<string> used;
+
+        for (auto i : strs) {
+            if (used.count(i))
+                continue;
+
+            vector<string> group = list_anagram(strs, i);
+
+            for (auto& s : group)
+                used.insert(s);
+
+            ans.push_back(group);
+        }
+
+        return ans;
+    }
+};

@@ -1,8 +1,8 @@
 {
     "totalQuestions": 136,
-    "totalSubmissions": 351,
-    "acceptedSubmissions": 283,
-    "acceptanceRate": 80.63,
+    "totalSubmissions": 352,
+    "acceptedSubmissions": 284,
+    "acceptanceRate": 80.68,
     "difficultyCounts": {
         "EASY": 70,
         "HARD": 6,
@@ -10,7 +10,7 @@
     },
     "languageCounts": {
         "C": 95,
-        "C++": 236,
+        "C++": 237,
         "Python3": 20
     }
 }

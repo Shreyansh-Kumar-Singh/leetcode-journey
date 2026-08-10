@@ -127,15 +127,37 @@
 
     const monthLabelsHTML = `<div class="month-labels">${monthLabels.map(m => `<div>${m}</div>`).join('')}</div>`;
 
+    const todayKey = new Date().toISOString().slice(0, 10);
+
     const cellsHTML = days.map(d => {
       const key = d.toISOString().slice(0, 10);
       const inYear = d >= start && d <= end;
       const count = countByDate[key] || 0;
       const level = inYear ? levelFor(count) : 0;
-      return `<div class="heatmap-cell" data-level="${inYear ? level : ''}" data-date="${key}" data-count="${count}" style="${inYear ? '' : 'visibility:hidden;'}"></div>`;
+      const isToday = inYear && key === todayKey;
+      return `<div class="heatmap-cell${isToday ? ' is-today' : ''}" data-level="${inYear ? level : ''}" data-date="${key}" data-count="${count}" style="${inYear ? '' : 'visibility:hidden;'}"></div>`;
     }).join('');
 
-    container.innerHTML = `${monthLabelsHTML}<div class="heatmap-grid">${cellsHTML}</div>`;
+    // Grid rows are Sun→Sat (row 0 = Sunday, since the grid is aligned to
+    // start on a Sunday), so labels must follow that same order.
+    const dowLabelsHTML = `<div class="dow-labels"><div></div><div>Mon</div><div></div><div>Wed</div><div></div><div>Fri</div><div></div></div>`;
+
+    const yearTotal = Object.entries(countByDate)
+      .filter(([date]) => date.slice(0, 4) === year)
+      .reduce((sum, [, c]) => sum + c, 0);
+    const yearTotalHTML = `<span class="heatmap-year-total">${yearTotal} submission${yearTotal === 1 ? '' : 's'} in ${year}</span>`;
+
+    container.innerHTML = `
+      <div class="heatmap-body">
+        ${dowLabelsHTML}
+        <div class="heatmap-main">
+          ${monthLabelsHTML}
+          <div class="heatmap-grid">${cellsHTML}</div>
+        </div>
+      </div>`;
+
+    const totalHost = document.getElementById('heatmap-year-total-host');
+    if (totalHost) totalHost.innerHTML = yearTotalHTML;
 
     container.querySelectorAll('.heatmap-cell[data-date]').forEach(cell => {
       cell.addEventListener('mouseenter', (e) => {

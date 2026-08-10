@@ -571,9 +571,22 @@ tbody tr:last-child td { border-bottom: none; }
    ========================================================================== */
 
 .heatmap-scroll { overflow-x: auto; padding-bottom: 8px; }
+.heatmap-body { display: flex; gap: 8px; }
+.heatmap-main { display: flex; flex-direction: column; }
+.dow-labels {
+  display: grid;
+  grid-template-rows: repeat(7, 13px);
+  gap: 3px;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 21px;
+  flex-shrink: 0;
+}
+.dow-labels div { display: flex; align-items: center; height: 13px; padding-right: 4px; }
 .heatmap-grid {
   display: grid;
   grid-auto-flow: column;
+  grid-auto-columns: 13px;
   grid-template-rows: repeat(7, 13px);
   gap: 3px;
   width: max-content;
@@ -585,6 +598,7 @@ tbody tr:last-child td { border-bottom: none; }
   border: 1px solid var(--border);
   position: relative;
 }
+.heatmap-cell.is-today { box-shadow: 0 0 0 1.5px var(--accent-violet); }
 .heatmap-cell[data-level="1"] { background: rgba(46,230,196,0.25); border-color: transparent; }
 .heatmap-cell[data-level="2"] { background: rgba(46,230,196,0.48); border-color: transparent; }
 .heatmap-cell[data-level="3"] { background: rgba(46,230,196,0.72); border-color: transparent; }
@@ -612,7 +626,19 @@ tbody tr:last-child td { border-bottom: none; }
 }
 .hm-tooltip.show { opacity: 1; }
 
-.month-labels { display: grid; grid-auto-flow: column; gap: 3px; width: max-content; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+.month-labels {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 13px;
+  gap: 3px;
+  width: max-content;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.heatmap-year-total { font-size: 12.5px; color: var(--text-secondary); margin-left: 10px; }
 
 /* ==========================================================================
    Skeleton loaders
@@ -893,4 +919,112 @@ body.lj-modal-open { overflow: hidden; }
 @media (max-width: 560px) {
   .submission-item { grid-template-columns: auto 1fr auto; }
   .submission-item-runtime, .submission-item-memory { display: none; }
+}
+
+/* ==========================================================================
+   Timeline page — every submission in true submitted order
+   ========================================================================== */
+
+.order-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition), background var(--transition);
+}
+.order-toggle-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+.order-toggle-btn:hover { border-color: var(--accent-teal); background: var(--bg-card-hover); }
+.order-toggle-btn[data-order="desc"] svg { transform: scaleY(-1); }
+
+.timeline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.timeline-seq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 52px;
+}
+.timeline-seq-num {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent-teal);
+  background: var(--accent-gradient-soft);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.timeline-seq-line {
+  flex: 1;
+  width: 2px;
+  min-height: 16px;
+  margin: 6px 0;
+  background: var(--border);
+}
+.timeline-item:last-child .timeline-seq-line { background: transparent; }
+
+.timeline-card {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  transition: border-color var(--transition), background var(--transition);
+}
+.timeline-card:hover { border-color: var(--border-strong); background: var(--bg-card-hover); }
+
+.timeline-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.timeline-card-top .problem-link {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: auto;
+}
+
+.timeline-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+.timeline-card-meta .row-action-btn { margin-left: auto; font-family: var(--font-display); }
+
+@media (max-width: 560px) {
+  .timeline-seq { width: 40px; }
+  .timeline-card-meta { font-size: 11.5px; gap: 10px; }
 }

@@ -6,8 +6,8 @@
         "difficulty": "EASY",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2026-06-30T20:42:32+00:00",
-        "num_submitted": 12,
+        "last_submitted_at": "2026-08-14T22:46:10+00:00",
+        "num_submitted": 13,
         "tags": [
             "Array",
             "Hash Table"
@@ -94,8 +94,8 @@
         "difficulty": "MEDIUM",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2026-03-27T14:19:28+00:00",
-        "num_submitted": 1,
+        "last_submitted_at": "2026-08-13T23:57:27+00:00",
+        "num_submitted": 2,
         "tags": [
             "String"
         ]
@@ -766,12 +766,105 @@
         "difficulty": "EASY",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2025-01-18T13:08:23+00:00",
-        "num_submitted": 1,
+        "last_submitted_at": "2026-08-19T21:03:43+00:00",
+        "num_submitted": 2,
         "tags": [
             "Stack",
             "Tree",
             "Depth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "100",
+        "title": "Same Tree",
+        "title_slug": "same-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T10:15:39+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "101",
+        "title": "Symmetric Tree",
+        "title_slug": "symmetric-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T10:23:29+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "102",
+        "title": "Binary Tree Level Order Traversal",
+        "title_slug": "binary-tree-level-order-traversal",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T19:59:12+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Tree",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "103",
+        "title": "Binary Tree Zigzag Level Order Traversal",
+        "title_slug": "binary-tree-zigzag-level-order-traversal",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T20:49:09+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "104",
+        "title": "Maximum Depth of Binary Tree",
+        "title_slug": "maximum-depth-of-binary-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T08:41:00+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "107",
+        "title": "Binary Tree Level Order Traversal II",
+        "title_slug": "binary-tree-level-order-traversal-ii",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T20:43:46+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Tree",
+            "Breadth-First Search",
             "Binary Tree"
         ]
     },
@@ -789,6 +882,37 @@
             "Divide and Conquer",
             "Tree",
             "Binary Search Tree",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "110",
+        "title": "Balanced Binary Tree",
+        "title_slug": "balanced-binary-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T21:55:44+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
+        "frontend_id": "112",
+        "title": "Path Sum",
+        "title_slug": "path-sum",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T12:00:49+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
             "Binary Tree"
         ]
     },
@@ -932,8 +1056,8 @@
         "difficulty": "EASY",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2025-01-18T13:12:04+00:00",
-        "num_submitted": 1,
+        "last_submitted_at": "2026-08-19T20:45:09+00:00",
+        "num_submitted": 3,
         "tags": [
             "Stack",
             "Tree",
@@ -948,8 +1072,8 @@
         "difficulty": "EASY",
         "status": "SOLVED",
         "last_result": "AC",
-        "last_submitted_at": "2025-01-18T13:13:46+00:00",
-        "num_submitted": 3,
+        "last_submitted_at": "2026-08-19T20:49:46+00:00",
+        "num_submitted": 4,
         "tags": [
             "Stack",
             "Tree",
@@ -1121,6 +1245,22 @@
         ]
     },
     {
+        "frontend_id": "199",
+        "title": "Binary Tree Right Side View",
+        "title_slug": "binary-tree-right-side-view",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-25T11:30:56+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ]
+    },
+    {
         "frontend_id": "201",
         "title": "Bitwise AND of Numbers Range",
         "title_slug": "bitwise-and-of-numbers-range",
@@ -1205,6 +1345,22 @@
             "Array",
             "Hash Table",
             "Sliding Window"
+        ]
+    },
+    {
+        "frontend_id": "226",
+        "title": "Invert Binary Tree",
+        "title_slug": "invert-binary-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T11:52:31+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
         ]
     },
     {
@@ -1298,6 +1454,21 @@
         ]
     },
     {
+        "frontend_id": "258",
+        "title": "Add Digits",
+        "title_slug": "add-digits",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-21T23:36:16+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Math",
+            "Simulation",
+            "Number Theory"
+        ]
+    },
+    {
         "frontend_id": "268",
         "title": "Missing Number",
         "title_slug": "missing-number",
@@ -1345,6 +1516,22 @@
             "Bit Manipulation",
             "Pigeonhole Principle",
             "Floyd's Cycle Finding Algorithm"
+        ]
+    },
+    {
+        "frontend_id": "300",
+        "title": "Longest Increasing Subsequence",
+        "title_slug": "longest-increasing-subsequence",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-15T19:30:17+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Binary Search",
+            "Dynamic Programming",
+            "Longest Increasing Subsequence"
         ]
     },
     {
@@ -1535,6 +1722,20 @@
         ]
     },
     {
+        "frontend_id": "429",
+        "title": "N-ary Tree Level Order Traversal",
+        "title_slug": "n-ary-tree-level-order-traversal",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T20:53:42+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Tree",
+            "Breadth-First Search"
+        ]
+    },
+    {
         "frontend_id": "443",
         "title": "String Compression",
         "title_slug": "string-compression",
@@ -1586,6 +1787,22 @@
         ]
     },
     {
+        "frontend_id": "496",
+        "title": "Next Greater Element I",
+        "title_slug": "next-greater-element-i",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-11T21:11:26+00:00",
+        "num_submitted": 4,
+        "tags": [
+            "Array",
+            "Hash Table",
+            "Stack",
+            "Monotonic Stack"
+        ]
+    },
+    {
         "frontend_id": "509",
         "title": "Fibonacci Number",
         "title_slug": "fibonacci-number",
@@ -1599,6 +1816,20 @@
             "Dynamic Programming",
             "Recursion",
             "Memoization"
+        ]
+    },
+    {
+        "frontend_id": "540",
+        "title": "Single Element in a Sorted Array",
+        "title_slug": "single-element-in-a-sorted-array",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-10T22:11:22+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Binary Search"
         ]
     },
     {
@@ -1642,6 +1873,52 @@
             "Array",
             "Hash Table",
             "Prefix Sum"
+        ]
+    },
+    {
+        "frontend_id": "589",
+        "title": "N-ary Tree Preorder Traversal",
+        "title_slug": "n-ary-tree-preorder-traversal",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T22:20:08+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Stack",
+            "Tree",
+            "Depth-First Search"
+        ]
+    },
+    {
+        "frontend_id": "590",
+        "title": "N-ary Tree Postorder Traversal",
+        "title_slug": "n-ary-tree-postorder-traversal",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T22:23:54+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Stack",
+            "Tree",
+            "Depth-First Search"
+        ]
+    },
+    {
+        "frontend_id": "637",
+        "title": "Average of Levels in Binary Tree",
+        "title_slug": "average-of-levels-in-binary-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T20:33:33+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
         ]
     },
     {
@@ -1691,6 +1968,21 @@
         ]
     },
     {
+        "frontend_id": "682",
+        "title": "Baseball Game",
+        "title_slug": "baseball-game",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-11T21:26:09+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Stack",
+            "Simulation"
+        ]
+    },
+    {
         "frontend_id": "696",
         "title": "Count Binary Substrings",
         "title_slug": "count-binary-substrings",
@@ -1705,6 +1997,21 @@
         ]
     },
     {
+        "frontend_id": "700",
+        "title": "Search in a Binary Search Tree",
+        "title_slug": "search-in-a-binary-search-tree",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-24T21:59:08+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Tree",
+            "Binary Search Tree",
+            "Binary Tree"
+        ]
+    },
+    {
         "frontend_id": "704",
         "title": "Binary Search",
         "title_slug": "binary-search",
@@ -1716,6 +2023,22 @@
         "tags": [
             "Array",
             "Binary Search"
+        ]
+    },
+    {
+        "frontend_id": "733",
+        "title": "Flood Fill",
+        "title_slug": "flood-fill",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-17T00:04:22+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Matrix"
         ]
     },
     {
@@ -1896,6 +2219,20 @@
         ]
     },
     {
+        "frontend_id": "1018",
+        "title": "Binary Prefix Divisible By 5",
+        "title_slug": "binary-prefix-divisible-by-5",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-21T12:55:23+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Bit Manipulation"
+        ]
+    },
+    {
         "frontend_id": "1089",
         "title": "Duplicate Zeros",
         "title_slug": "duplicate-zeros",
@@ -1923,6 +2260,22 @@
         ]
     },
     {
+        "frontend_id": "1386",
+        "title": "Cinema Seat Allocation",
+        "title_slug": "cinema-seat-allocation",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-19T17:00:12+00:00",
+        "num_submitted": 4,
+        "tags": [
+            "Array",
+            "Hash Table",
+            "Greedy",
+            "Bit Manipulation"
+        ]
+    },
+    {
         "frontend_id": "1486",
         "title": "XOR Operation in an Array",
         "title_slug": "xor-operation-in-an-array",
@@ -1934,6 +2287,57 @@
         "tags": [
             "Math",
             "Bit Manipulation"
+        ]
+    },
+    {
+        "frontend_id": "1927",
+        "title": "Sum Game",
+        "title_slug": "sum-game",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-23T11:39:11+00:00",
+        "num_submitted": 8,
+        "tags": [
+            "Math",
+            "String",
+            "Greedy",
+            "Game Theory"
+        ]
+    },
+    {
+        "frontend_id": "2000",
+        "title": "Reverse Prefix of Word",
+        "title_slug": "reverse-prefix-of-word",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-12T19:52:34+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Two Pointers",
+            "String",
+            "Stack"
+        ]
+    },
+    {
+        "frontend_id": "2029",
+        "title": "Stone Game IX",
+        "title_slug": "stone-game-ix",
+        "difficulty": "MEDIUM",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-16T22:11:21+00:00",
+        "num_submitted": 6,
+        "tags": [
+            "Array",
+            "Math",
+            "Greedy",
+            "Minimax",
+            "Counting",
+            "Game Theory",
+            "Nim Game",
+            "Zero-Sum Game"
         ]
     },
     {
@@ -1982,6 +2386,20 @@
         ]
     },
     {
+        "frontend_id": "2164",
+        "title": "Sort Even and Odd Indices Independently",
+        "title_slug": "sort-even-and-odd-indices-independently",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-21T12:46:27+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Array",
+            "Sorting"
+        ]
+    },
+    {
         "frontend_id": "2220",
         "title": "Minimum Bit Flips to Convert Number",
         "title_slug": "minimum-bit-flips-to-convert-number",
@@ -2011,6 +2429,35 @@
         ]
     },
     {
+        "frontend_id": "3069",
+        "title": "Distribute Elements Into Two Arrays I",
+        "title_slug": "distribute-elements-into-two-arrays-i",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-20T19:27:01+00:00",
+        "num_submitted": 1,
+        "tags": [
+            "Array",
+            "Simulation"
+        ]
+    },
+    {
+        "frontend_id": "3090",
+        "title": "Maximum Length Substring With Two Occurrences",
+        "title_slug": "maximum-length-substring-with-two-occurrences",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-15T17:59:29+00:00",
+        "num_submitted": 2,
+        "tags": [
+            "Hash Table",
+            "String",
+            "Sliding Window"
+        ]
+    },
+    {
         "frontend_id": "3461",
         "title": "Check If Digits Are Equal in String After Operations I",
         "title_slug": "check-if-digits-are-equal-in-string-after-operations-i",
@@ -2025,6 +2472,47 @@
             "Simulation",
             "Combinatorics",
             "Number Theory"
+        ]
+    },
+    {
+        "frontend_id": "3471",
+        "title": "Find the Largest Almost Missing Integer",
+        "title_slug": "find-the-largest-almost-missing-integer",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-18T18:21:11+00:00",
+        "num_submitted": 5,
+        "tags": [
+            "Array",
+            "Hash Table"
+        ]
+    },
+    {
+        "frontend_id": "3622",
+        "title": "Check Divisibility by Digit Sum and Product",
+        "title_slug": "check-divisibility-by-digit-sum-and-product",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-22T09:15:56+00:00",
+        "num_submitted": 4,
+        "tags": [
+            "Math"
+        ]
+    },
+    {
+        "frontend_id": "3718",
+        "title": "Smallest Missing Multiple of K",
+        "title_slug": "smallest-missing-multiple-of-k",
+        "difficulty": "EASY",
+        "status": "SOLVED",
+        "last_result": "AC",
+        "last_submitted_at": "2026-08-25T09:45:14+00:00",
+        "num_submitted": 3,
+        "tags": [
+            "Array",
+            "Hash Table"
         ]
     }
 ]
